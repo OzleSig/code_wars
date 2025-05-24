@@ -20,10 +20,11 @@ beeramid(1500, 2); // should === 12
 beeramid(5000, 3); // should === 16 """
 
 def beeramid(bonus, price):
-    level = 1
-    while int(bonus/(price*level)) > 1:
-        bonus = bonus-price*level
+    level = 0
+    while bonus-(price*pow(level+1,2)) >= 0:
         level+=1
+        bonus = bonus-(price*pow(level,2))
     return level
 
-print(beeramid(5000, 3))
+print(beeramid(10, 2))
+
